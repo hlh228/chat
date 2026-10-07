@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <!-- 手机浏览器靠这一行才知道按屏幕宽度排版（PRD：手机查看时界面舒适） -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>轻量聊天室</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- 顶部状态条：显示当前网络连接状态（PRD 界面要求 · 状态提示） -->
+<div id="status" class="status">未连接</div>
+
+<!-- ==================== 一、登录页 ==================== -->
+<section id="login-view" class="login-view hidden">
+  <h1>轻量聊天室</h1>
+
+  <label>登录名
+    <input id="username" maxlength="32" placeholder="2 ~ 32 个字符" />
+  </label>
+  <label>密码
+    <input id="password" type="password" maxlength="64" placeholder="至少 6 位" />
+  </label>
+  <label>昵称（只注册时用，可留空）
+    <input id="nickname" maxlength="32" placeholder="不填就用登录名" />
+  </label>
+
+  <div class="row">
+    <button id="btn-login">登录</button>
+    <button id="btn-register" class="ghost">注册</button>
+  </div>
+
+  <p id="login-hint" class="hint"></p>
+</section>
+
+<!-- ==================== 二、聊天页（左栏 + 右栏） ==================== -->
+<section id="chat-view" class="chat-view hidden">
+
+  <!-- 左栏：当前用户 + 会话列表 + 用户列表 -->
+  <aside class="sidebar">
+    <div class="me">
+      <span id="me-name"></span>
+      <button id="btn-logout" class="mini ghost">退出</button>
+    </div>
+
+    <h2>会话</h2>
+    <div id="conversation-list" class="list"></div>
+
+    <h2>找人聊天</h2>
+    <button id="btn-refresh-users" class="mini ghost">刷新用户列表</button>
+    <div id="user-list" class="list"></div>
+  </aside>
+
+  <!-- 右栏：消息展示区 + 输入区 -->
+  <main class="chat">
+    <h2 id="chat-title">请从左侧选择一个聊天对象</h2>
+    <p id="notice" class="notice"></p>
+
+    <div id="message-list" class="messages"></div>
+
+    <div class="composer">
+      <textarea id="input" rows="2" placeholder="输入消息，Enter 发送，Shift + Enter 换行"></textarea>
+      <button id="btn-send" disabled>发送</button>
+    </div>
+  </main>
+
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>

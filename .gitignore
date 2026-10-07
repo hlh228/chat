@@ -1,0 +1,21 @@
+# ---- Python 的临时文件 ----
+__pycache__/
+*.pyc
+
+# ---- 虚拟环境：48 MB，绝对不能提交 ----
+backend/.venv/
+
+# ---- 数据库：里面有你的聊天记录和账号 ----
+*.db
+
+# ---- 内网穿透的个人凭证 ----
+tools/cpolar_token.txt
+
+# ---- 第三方穿透客户端：18 MB，要用时从官网下载 ----
+tools/cpolar/cpolar.exe
+
+# ---- VS Code 的本地设置 ----
+.vscode/
+
+# ---- 测试脚本的日志 ----
+*.log
