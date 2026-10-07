@@ -84,6 +84,7 @@ chat/
 ├─ PRD.md                     # 需求文档
 ├─ database.md                # 数据库设计说明
 ├─ TECH_DESIGN.md             # 本文档
+├─ GitHub提交指南.md          # 提交到 GitHub 的完整步骤与报错处理
 │
 ├─ backend/                   # 后端（端口 8000）
 │  ├─ app/

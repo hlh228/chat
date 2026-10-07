@@ -22,3 +22,4 @@
 - [PRD.md](PRD.md) —— 需求文档
 - [TECH_DESIGN.md](TECH_DESIGN.md) —— 技术设计（架构 / 数据库 / 接口 / 取舍）
 - [database.md](database.md) —— 数据库设计说明
+- [GitHub提交指南.md](GitHub提交指南.md) —— 提交到 GitHub 的完整步骤（含常见报错处理）
