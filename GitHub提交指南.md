@@ -90,7 +90,7 @@ Git 每次提交都要记录"是谁提交的"，所以必须先告诉它名字�
 
 ```
 git config --global user.name "hlh228"
-git config --global user.email "312868540@qq.com@example.com"
+git config --global user.email "312868540@qq.com"
 git config --global core.quotepath false
 git config --global core.autocrlf true
 ```
@@ -104,9 +104,10 @@ git config --global core.autocrlf true
 | `core.quotepath false` | 正常显示中文文件名 | 中文文件名会变成 `\346\226\207\344\273\266` 这种乱码 |
 | `core.autocrlf true` | 提交时把换行符统一成 LF，检出时还原成 CRLF | 脚本换行符被打乱，`.bat` 双击可能出问题 |
 
-> ⚠️ 本机 `user.email` 当时写成了 `312868540@qq.com@example.com`（多了一截 `@example.com`），
-> 属于笔误。它不影响提交和推送，只是 GitHub 上不会显示"这是你的提交"。
-> 要改正：`git config --global user.email "你的真实邮箱"`（改完只影响以后的提交）。
+> ⚠️ 小坑记录：本机一开始把 `user.email` 写成了 `312868540@qq.com@example.com`（末尾多出一截
+> `@example.com`），属于笔误。它不影响提交和推送，只是 GitHub 不会把这笔提交算到你账号名下。
+> 发现后用 `git config --global user.email "312868540@qq.com"` 改正即可
+> （改完只影响**以后**的提交，已经产生的提交记录不会变；随时可用 `git config --global --get user.email` 复查）。
 
 ### 3. 补充：换行符的"双保险"——`.gitattributes`
 
@@ -326,6 +327,7 @@ CMD 和 PowerShell 有些命令不一样，混淆了会报"无法识别"：
 | 项目 | 内容 |
 |---|---|
 | Git 版本 | `git version 2.56.0.windows.2` |
+| Git 署名 | `user.name = hlh228`，`user.email = 312868540@qq.com` |
 | 本地仓库路径 | `C:\Users\XiaoXin\Desktop\code\chat` |
 | 远程仓库地址 | <https://github.com/hlh228/chat>（Public） |
 | 远程地址（命令用） | `https://github.com/hlh228/chat.git` |
