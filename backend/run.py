@@ -82,7 +82,7 @@ def main() -> None:
         # "模块路径:变量名" —— 到 app/main.py 里找那个叫 app 的 FastAPI 对象
         uvicorn.run("app.main:app", host=HOST, port=PORT)
     except KeyboardInterrupt:
-        pass  # 用户按了 Ctrl+C，属于正常退出
+        pass  # 按了 Ctrl+C，属于正常退出
     finally:
         print("   后端已停止。")
 

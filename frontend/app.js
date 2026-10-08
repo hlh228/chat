@@ -5,7 +5,7 @@
  *   登录 → 拉用户列表 / 会话列表 → 进入会话 → 拉最近消息
  *        → 每 2 秒轮询新消息 → 发送消息
  *
- * 收消息用轮询而不是 WebSocket：实现最简单，代价是固定的 2 秒延迟。
+ * 收消息用轮询：实现最简单，代价是固定的 2 秒延迟。
  */
 
 // 后端地址。分两类入口：
@@ -277,7 +277,7 @@ async function enterConversation(conversationId, peer) {
   notice.textContent = "";
   sendButton.disabled = false;
 
-  // 手机端是上下布局，点完人要把聊天区滚到眼前
+  // 手机端上下布局，点完人要把聊天区滚到眼前
   if (window.innerWidth <= 768) chatTitle.scrollIntoView({ behavior: "smooth" });
 
   await loadMessages();

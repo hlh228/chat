@@ -29,7 +29,7 @@ router = APIRouter(prefix="/api/auth", tags=["认证"])
 def register(payload: RegisterRequest, db: Session = Depends(get_db)):
     """注册新账号，成功后返回 token 和用户信息。"""
     # 先查一下登录名有没有被占用。（这一步只为给出友好提示，
-    # 真正保证不重复的是数据库上 username 的唯一索引）
+    # 真正保证不重复的是数据库上 username 的唯一索引）；
     existing_user = db.scalar(select(User).where(User.username == payload.username))
     if existing_user is not None:
         raise HTTPException(

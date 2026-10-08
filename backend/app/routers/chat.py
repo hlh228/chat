@@ -152,7 +152,7 @@ def list_users(
 ):
     """列出所有用户供前端选择聊天对象。
 
-    排除我自己（没必要跟自己聊），并按 id 排序，保证每次返回顺序一致。
+    排除自己（没必要跟自己聊），并按 id 排序，保证每次返回顺序一致。
     参数里写了 Depends(get_current_user)，所以没登录的请求会被提前拦下返回 401。
     """
     users = db.scalars(select(User).where(User.id != current_user.id).order_by(User.id)).all()
@@ -175,7 +175,7 @@ def open_conversation(
 ):
     """会话去重：找得到“我和他”的会话就返回它，找不到才新建。
 
-    必须去重：不去重的话，前端每点一次就会多出一个会话，聊十次列表里十个“张三”。
+    必须去重：不去重的话，前端每点一次就会多出一个会话，
     """
     if payload.peer_id == current_user.id:
         raise HTTPException(
@@ -252,7 +252,7 @@ def send_message(
     """消息幂等：同一个 client_msg_id 提交两次，数据库里只会存下一条。
 
     网络不好时用户会重复点“发送”，不处理的话对方会收到两条一模一样的话。
-    实现分两层：先查这个串存过没有（平时都在这里拦住），
+    实现分两层：先查这个串存过没有，
     真遇到并发时再靠数据库的唯一约束兜底。
     """
     conversation = _get_my_conversation(conversation_id, current_user, db)

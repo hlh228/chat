@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # （跑测试时用它指向临时数据库，免得测试数据污染 chat.db）
 DB_FILE = Path(os.getenv("CHAT_DB_FILE") or (BASE_DIR / "chat.db"))
 
-# SQLAlchemy 要求的 SQLite 连接地址；as_posix() 把 Windows 的反斜杠转成正斜杠
+# SQLAlchemy 要求的 SQLite 连接地址；as_posix() 把 Windows 的反斜杠转成正斜杠 注意点
 DATABASE_URL = f"sqlite:///{DB_FILE.as_posix()}"
 
 # ============================== 认证 ==============================

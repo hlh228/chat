@@ -31,7 +31,7 @@ def hash_password(password: str, salt: str) -> str:
     """把密码和盐一起做哈希，返回可以存进数据库的字符串。
 
     用 pbkdf2_hmac 而不是直接 sha256：它能指定“搅拌轮数”，故意让计算变慢。
-    20 万轮约 0.1 秒，用户感觉不到，但暴力破解的成本提高了几万倍。
+    20 万轮约 0.1 秒，暴力破解的成本提高了几万倍。
     """
     derived_key = hashlib.pbkdf2_hmac(
         _HASH_ALGORITHM,

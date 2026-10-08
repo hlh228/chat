@@ -19,3 +19,9 @@ tools/cpolar/cpolar.exe
 
 # ---- 测试脚本的日志 ----
 *.log
+
+# ---- 只在本机留档、不上传到仓库的三份文档 ----
+PRD.md
+database.md
+GitHub提交指南.md
+
